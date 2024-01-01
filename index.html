@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		  .input-small {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		  }
+		  .input-big {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+			height: 15vh;
+			resize: none;
+		  }
+		  .container {
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 10px;
+			flex: 1;
+		  }
+		  .container-row {
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 10px;
+			display: flex;
+			flex-direction: row;
+		  }
+		  .button {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 4px;
+		  }
+		  .example-button {
+			background-color: #E2E2E2;
+			border: none;
+			color: black;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 4px;
+		  }
+		  .example-button:hover {
+			background-color: #B2B2B2;
+			color: white;
+		  }
+		  .button-container {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			justify-content: space-between;
+			height: 100%;
+		  }
+		</style>
+		<script src="pako.js"></script>
+		<script src="examples.js"></script>
+		<script src="replace.js"></script>
+	</head>
+<body>
+
+<h2>Factorio Blueprint Find/Replace</h2>
+
+<div class="container-row">
+	<div class="container">
+		<label for="blueprint_field">Blueprint String:</label>
+		<textarea type="text" id="blueprint_field" oninput="updateOutput()" class="input-big"></textarea><br><br>
+		
+		<label for="find_field">Find:</label>
+		<input type="text" id="find_field" oninput="updateOutput()" class="input-small"><br><br>
+		
+		<label for="replace_field">Replace:</label>
+		<input type="text" id="replace_field" oninput="updateOutput()" class="input-small"><br><br><br>
+		
+		<p type="text" id="numreplaced"></p>
+		
+		<label for="output-field">Blueprint Output:</label>
+		<textarea type="text" id="output-field" class="input-big" readonly></textarea><br><br>
+		
+		<button class="button" onclick="copyToClipboard()">Copy to Clipboard</button>
+	</div>
+	<div class="button-container">
+		<button class="example-button" onclick="loadExample(0)">Load Example: Train Stations</button>
+		<button class="example-button" onclick="loadExample(1)">Load Example: Splitters</button>
+	</div>
+</div>
+
+</body>
+</html>
